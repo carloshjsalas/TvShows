@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="tvShow"
+            type="com.cs.tvshows.data.model.TvShow" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/bottomsheet_top_image"
+        tools:background="@color/white"
+        tools:context=".ui.home.HomeFragment">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imageViewCover"
+            cover="@{tvShow.backdropPath}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/contentDescription"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ImageViewTopCorner"
+            tools:background="@color/accent" />
+
+        <ImageButton
+            android:id="@+id/imageViewClose"
+            android:layout_width="@dimen/close_button_size"
+            android:layout_height="@dimen/close_button_size"
+            android:layout_marginTop="@dimen/space_medium"
+            android:layout_marginEnd="@dimen/space_medium"
+            android:background="@drawable/circle_white_background"
+            android:contentDescription="@string/contentDescription"
+            android:src="@drawable/ic_close"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageViewCover">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewTitle"
+                    style="@style/DetailsMainTitleStyle"
+                    text="@{tvShow.name}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_xxbig"
+                    android:layout_marginTop="@dimen/space_xbig"
+                    android:layout_marginEnd="@dimen/space_xxbig"
+                    android:layout_marginBottom="@dimen/space_big"
+                    tools:text="Main Title Main Title Main Title Main Title Main Title Main Title " />
+
+                <TextView
+                    android:id="@+id/textViewDescription"
+                    style="@style/DetailsDescriptionStyle"
+                    text="@{tvShow.overview}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_xxbig"
+                    android:layout_marginEnd="@dimen/space_xxbig"
+                    android:layout_marginBottom="@dimen/space_xbig"
+                    tools:text="Main Title Main Title Main Title Main Title Main Title Main Title "
+                    tools:visibility="visible" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardViewInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_big"
+                    android:layout_marginEnd="@dimen/space_big"
+                    android:layout_marginBottom="@dimen/bottomsheet_bottom_margin"
+                    android:visibility="gone"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="@dimen/card_radius"
+                    app:cardElevation="@dimen/elevation_value"
+                    app:cardUseCompatPadding="true"
+                    tools:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/item_list_height"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/posterImageView"
+                            poster="@{tvShow.posterPath}"
+                            android:layout_width="@dimen/item_list_width"
+                            android:layout_height="match_parent"
+                            android:adjustViewBounds="true"
+                            android:background="@color/white"
+                            tools:ignore="ContentDescription" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical"
+                            android:padding="@dimen/space_regular">
+
+                            <TextView
+                                android:id="@+id/firstAirDateTextView"
+                                text="@{tvShow.firstAirDate}"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawablePadding="@dimen/space_small"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/overview_size"
+                                app:drawableStartCompat="@drawable/ic_calendar" />
+
+                            <TextView
+                                android:id="@+id/ratingTextView"
+                                rating="@{tvShow.voteAverage}"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/space_big"
+                                android:layout_marginBottom="@dimen/space_big"
+                                android:drawablePadding="@dimen/space_small"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/overview_size"
+                                app:drawableStartCompat="@drawable/ic_star_rating" />
+
+                            <TextView
+                                android:id="@+id/popularityTextView"
+                                rating="@{tvShow.popularity}"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawablePadding="@dimen/space_small"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/overview_size"
+                                app:drawableStartCompat="@drawable/ic_popularity" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/accent"
+            android:indeterminateTintMode="src_atop"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:trackColor="?colorPrimaryInverse"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

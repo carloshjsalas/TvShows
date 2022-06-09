@@ -1,0 +1,43 @@
+<resources>
+
+    <style name="MainTitleStyle">
+        <item name="android:textSize">@dimen/text_title_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="DetailsMainTitleStyle">
+        <item name="android:textSize">@dimen/text_big_title_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:lineSpacingExtra">10sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="DetailsDescriptionStyle">
+        <item name="android:textSize">@dimen/overview_size</item>
+        <item name="android:gravity">center</item>
+        <item name="android:lineSpacingExtra">5sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="RatingTitleStyle">
+        <item name="android:textSize">@dimen/text_title_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="CustomBottomSheetDialogTheme" parent="Theme.Design.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/ModalSheetTopRoundCorners</item>
+    </style>
+
+    <style name="ModalSheetTopRoundCorners" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/modal_sheet_background</item>
+        <item name="background">@drawable/modal_sheet_background</item>
+    </style>
+
+    <style name="ImageViewTopCorner">
+        <item name="cornerSizeTopRight">6%</item>
+        <item name="cornerSizeTopLeft">6%</item>
+    </style>
+</resources>

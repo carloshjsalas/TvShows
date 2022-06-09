@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.cs.tvshows.ui.home.HomeFragment"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/homeToDetailDestination"
+            app:destination="@id/detailsFragment" />
+
+    </fragment>
+
+    <dialog
+        android:id="@+id/detailsFragment"
+        android:name="com.cs.tvshows.ui.details.DetailsFragment"
+        tools:layout="@layout/fragment_details" />
+
+</navigation>
