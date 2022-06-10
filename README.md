@@ -30,6 +30,7 @@ The app is structured in 3 main parts:
 
 <img width="626" alt="image" src="https://user-images.githubusercontent.com/8594582/173066355-1e3d90b4-a771-493e-afa3-f6c6f32ab829.png">
 
+Also simple unit tests for both view models where addded, just to show how this should be tested.
 
 ### Technologies used
 
