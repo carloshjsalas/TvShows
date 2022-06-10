@@ -1,4 +1,4 @@
-## TvShows
+## TvShows Sample App
 This is an example app with 2022 technologies used for native Android development.
 Is designed and coded to fetch data from an REST API service, saving this data locally and presenting it to the user.
 
