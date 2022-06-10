@@ -27,7 +27,6 @@ The app is structured in 3 main parts:
 - **2 The viewmodel**: that determines the state of the ui and contains logic regarding user events. It interacts with a repository to set or get data from cache (memory or local storage) or on the network.
 
 - **3 The data layer**: represented by (in this case) a repository that is responsible for delivering data to the app (and server) and contains logic regarding network requests, caching, etc.
-
 <img width="626" alt="image" src="https://user-images.githubusercontent.com/8594582/173066355-1e3d90b4-a771-493e-afa3-f6c6f32ab829.png">
 
 Also simple unit tests for both view models where addded, just to show how this should be tested.
