@@ -3,6 +3,7 @@ pluginManagement {
         gradlePluginPortal()
         google()
         mavenCentral()
+        maven(url = "https://maven.google.com")
     }
 }
 dependencyResolutionManagement {
@@ -13,4 +14,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "TvShows"
-include ':app'
+include(":app")

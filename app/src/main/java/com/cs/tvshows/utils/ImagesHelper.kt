@@ -1,7 +1,6 @@
 package com.cs.tvshows.utils
 
 import android.widget.ImageView
-import com.google.android.material.imageview.ShapeableImageView
 import javax.inject.Inject
 
 class ImagesHelper @Inject constructor() {

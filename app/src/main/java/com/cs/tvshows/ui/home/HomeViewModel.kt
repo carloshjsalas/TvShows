@@ -1,5 +1,6 @@
 package com.cs.tvshows.ui.home
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -15,7 +16,9 @@ class HomeViewModel @Inject constructor(
     private val repository: TvShowsRepository
 ) : ViewModel() {
 
-    val tvShows by lazy { MutableLiveData<Outcome<HomeActions>>() }
+    private val _tvShows by lazy { MutableLiveData<Outcome<HomeActions>>() }
+    val tvShows: LiveData<Outcome<HomeActions>> get() = _tvShows
+
 
     private var page = 1
     private var isLoadingNextPage = false
@@ -23,7 +26,7 @@ class HomeViewModel @Inject constructor(
     fun getTvShowsFirstPage() {
         page = 1
         isLoadingNextPage = true
-        tvShows.value = Outcome.Loading()
+        _tvShows.value = Outcome.Loading()
         getTvShowsByPage()
     }
 
@@ -31,7 +34,7 @@ class HomeViewModel @Inject constructor(
         if (!isLoadingNextPage) {
             page++
             isLoadingNextPage = true
-            tvShows.value = Outcome.Loading()
+            _tvShows.value = Outcome.Loading()
             getTvShowsByPage()
         }
     }
@@ -45,11 +48,11 @@ class HomeViewModel @Inject constructor(
                 }
                 is Outcome.Error -> {
                     isLoadingNextPage = false
-                    tvShows.value = Outcome.Error(it.error)
+                    _tvShows.value = Outcome.Error(it.error)
                 }
                 is Outcome.Loading -> {
                     isLoadingNextPage = true
-                    tvShows.value = Outcome.Loading()
+                    _tvShows.value = Outcome.Loading()
                 }
             }
         }
@@ -58,15 +61,15 @@ class HomeViewModel @Inject constructor(
     private fun handleSuccess(data: List<TvShow>?) {
         data?.let { tvShowsList ->
             if (page == 1 && tvShowsList.firstOrNull()?.page == 1) {
-                tvShows.value =
+                _tvShows.value =
                     Outcome.Success(HomeActions.OnTvShowsFirstPageLoaded(tvShowsList))
             } else if (tvShowsList.firstOrNull()?.page == page) {
-                tvShows.value =
+                _tvShows.value =
                     Outcome.Success(HomeActions.OnTvShowsNextPageLoaded(tvShowsList))
             }
         } ?: run {
             isLoadingNextPage = false
-            tvShows.value = Outcome.Error()
+            _tvShows.value = Outcome.Error()
         }
     }
 }

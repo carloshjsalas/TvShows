@@ -1,7 +1,6 @@
 package com.cs.tvshows.di
 
 import android.content.Context
-import com.cs.tvshows.BuildConfig
 import com.cs.tvshows.data.source.local.TvShowsDatabase
 import com.cs.tvshows.data.source.remote.ApiService
 import com.cs.tvshows.data.source.repository.TvShowsRepository
@@ -46,10 +45,7 @@ object AppModule {
     @Singleton
     fun provideHttpLogging() =
         HttpLoggingInterceptor().apply {
-            level = when {
-                BuildConfig.DEBUG -> HttpLoggingInterceptor.Level.BODY
-                else -> HttpLoggingInterceptor.Level.NONE
-            }
+            level = HttpLoggingInterceptor.Level.NONE
         }
 
     @Provides

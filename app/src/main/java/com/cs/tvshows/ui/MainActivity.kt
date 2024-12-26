@@ -1,7 +1,7 @@
 package com.cs.tvshows.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -10,7 +10,6 @@ import com.cs.tvshows.databinding.ActivityMainBinding
 import com.cs.tvshows.protocol.CommunicationCallback
 import com.cs.tvshows.protocol.ProtocolAction
 import com.cs.tvshows.ui.details.DetailsFragment.Companion.TV_SHOW_ID
-import com.cs.tvshows.ui.home.HomeFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

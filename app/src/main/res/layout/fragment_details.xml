@@ -19,7 +19,6 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imageViewCover"
-            cover="@{tvShow.backdropPath}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
@@ -59,7 +58,7 @@
                 <TextView
                     android:id="@+id/textViewTitle"
                     style="@style/DetailsMainTitleStyle"
-                    text="@{tvShow.name}"
+                    android:text="@{tvShow.name}"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/space_xxbig"
@@ -101,7 +100,6 @@
 
                         <ImageView
                             android:id="@+id/posterImageView"
-                            poster="@{tvShow.posterPath}"
                             android:layout_width="@dimen/item_list_width"
                             android:layout_height="match_parent"
                             android:adjustViewBounds="true"
@@ -128,7 +126,6 @@
 
                             <TextView
                                 android:id="@+id/ratingTextView"
-                                rating="@{tvShow.voteAverage}"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/space_big"
@@ -140,7 +137,6 @@
 
                             <TextView
                                 android:id="@+id/popularityTextView"
-                                rating="@{tvShow.popularity}"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:drawablePadding="@dimen/space_small"
